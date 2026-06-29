@@ -3,7 +3,7 @@ import { assetPath } from '@/utils/assetPath';
 
 export default function Navbar() {
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-10 bg-white">
+        <nav className="fixed top-0 left-0 right-0 z-50 px-4 lg:px-16 py-10 bg-background">
             <div className="relative flex items-center justify-between">
                 <Link to="/about" className="text-sm tracking-wider hover:opacity-70 transition-opacity">
                     About
@@ -12,7 +12,7 @@ export default function Navbar() {
                     <img 
                         src={assetPath("/assets/StudioLD.webp")}
                         alt="Lexie Downie" 
-                        className="h-16 object-contain"
+                        className="h-18 object-contain dark:invert"
                     />
                 </Link>
                 <a 

@@ -1,0 +1,30 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "Lexie",
+    "Downie",
+    "StudioLD",
+    "listingcardasset",
+    "listingimage",
+    "Poppins",
+    "lucide",
+    "shadcn",
+    "oklch",
+    "clsx",
+    "tailwindcss",
+    "postcss",
+    "autoprefixer",
+    "jsyaml"
+  ],
+  "ignorePaths": [
+    "node_modules",
+    "dist",
+    "*.yaml",
+    "*.yml",
+    "*.css",
+    "*.json",
+    "*.webp",
+    "*.mp4"
+  ]
+}
