@@ -1,4 +1,4 @@
-name: Spellcheck
+name: Code Quality
 
 on:
   push:
@@ -7,18 +7,21 @@ on:
     branches: [main]
 
 jobs:
-  spellcheck:
+  quality:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
           cache-dependency-path: Frontend/package-lock.json
       - name: Install dependencies
         working-directory: ./Frontend
         run: npm ci
-      - name: Run spellcheck
+      - name: Spellcheck
         working-directory: ./Frontend
         run: npm run spellcheck
+      - name: Vulnerability scan
+        working-directory: ./Frontend
+        run: npm audit --audit-level=high
