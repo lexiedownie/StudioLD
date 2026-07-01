@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import yaml from "js-yaml";
+import { load as parseYaml } from "js-yaml";
 import { useState } from "react";
 import projectsYaml from "../projects.yaml?raw";
 import { assetPath } from '@/utils/assetPath';
@@ -50,7 +50,7 @@ interface Project {
     images: ProjectImage[];
 }
 
-const projectsData = yaml.load(projectsYaml) as Project[];
+const projectsData = parseYaml(projectsYaml) as Project[];
 
 const sizeClasses10: Record<ImageSize | "default", string> = {
     default: "col-span-4 row-span-2",

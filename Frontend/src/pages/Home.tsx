@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
-import yaml from "js-yaml";
+import { load as parseYaml } from "js-yaml";
 import projectsYaml from "../projects.yaml?raw";
 import { assetPath } from '@/utils/assetPath';
 
-const projects = yaml.load(projectsYaml) as { slug: string; title: string; type: string; listingcardasset?: string }[];
+const projects = parseYaml(projectsYaml) as { slug: string; title: string; type: string; listingcardasset?: string }[];
 
 export default function Home() {
     const scrollToProjects = () => {
