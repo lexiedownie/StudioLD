@@ -10,6 +10,7 @@ updates:
     schedule:
       interval: "weekly"
       day: "monday"
+    target-branch: "dependabot"
     open-pull-requests-limit: 10
     cooldown:
         default-days: 3
