@@ -15,7 +15,9 @@
     "tailwindcss",
     "postcss",
     "autoprefixer",
-    "jsyaml"
+    "jsyaml",
+    "Shillington",
+    "TAFE"
   ],
   "ignorePaths": [
     "node_modules",
