@@ -2,61 +2,61 @@
   title: MUSE STUDIOS
   description: "Inspired by Muse Studios' philosophy of mindful movement, I developed a visual identity that reflects balance, energy and clarity. Muse's brand identity draws inspiration from the precision and flow of pilates practice, translating the studio's focus on strength, flexibility and mindful motion into clean and engaging visuals. I created a logo that captures the fluidity of movement, along with social media assets and a user-friendly app interface, ensuring the brand experience is consistent across both digital and physical touchpoints."
   type: UX/UI & BRANDING
-  listingcardasset: /assets/Muse Studios/MuseStudios.mp4
+  listingcardasset: /assets/Muse Studios/AppAd_MUSE.mp4
   images:
-    - src: /assets/Muse Studios/Muse1.mp4
+    - src: /assets/Muse Studios/LogoAnimation_MUSE.mp4
       size: wide
-    - src: /assets/Muse Studios/1.webp
+    - src: /assets/Muse Studios/AppMockup_MUSE.webp
       size: normal
-    - src: /assets/Muse Studios/2.webp
+    - src: /assets/Muse Studios/Merchandise_MUSE.webp
       size: normal
-    - src: /assets/Muse Studios/MuseStudios.mp4
+    - src: /assets/Muse Studios/AppAd_MUSE.mp4
       size: wide
-    - src: /assets/Muse Studios/Muse3.mp4
+    - src: /assets/Muse Studios/SocialMediaAssets_MUSE.mp4
       size: wide
-    - src: /assets/Muse Studios/3.webp
+    - src: /assets/Muse Studios/Studio_MUSE.webp
       size: normal
-    - src: /assets/Muse Studios/Muse4.mp4
+    - src: /assets/Muse Studios/LogoLoop_MUSE.mp4
       size: half_wide
-    - src: /assets/Muse Studios/Muse5.mp4
+    - src: /assets/Muse Studios/SocialStory_MUSE.mp4
       size: half_wide
 
 - slug: maintain-my-garden
   title: MAINTAIN MY GARDEN
   description: "Maintain My Garden is a landscaping and garden care company focused on creating and maintaining outdoor spaces with ease and professionalism. I developed a visual identity that reflects the brand's clean, approachable and nature-inspired ethos. This included designing a fresh logo, cohesive print materials and digital assets that highlight the company's commitment to simplicity and care. The result is a brand identity that feels modern and trustworthy while staying closely connected to the natural environments they work with."
   type: BRANDING
-  listingcardasset: /assets/Maintain My Garden/MaintainMyGarden.mp4
+  listingcardasset: /assets/Maintain My Garden/Logo_MMG.mp4
   images:
-    - src: /assets/Maintain My Garden/DOOH BILLBOARD.webp
+    - src: /assets/Maintain My Garden/DOOH_MMG.jpg
       size: extra_wide
-    - src: /assets/Maintain My Garden/Maintain1.mp4
+    - src: /assets/Maintain My Garden/LogoIcon_MMG.mp4
       size: thin
-    - src: /assets/Maintain My Garden/Maintain2.mp4
+    - src: /assets/Maintain My Garden/BrandColours_MMG.mp4
       size: tall
-    - src: /assets/Maintain My Garden/MaintainMyGarden.mp4
+    - src: /assets/Maintain My Garden/Logo_MMG.mp4
       size: wide
-    - src: /assets/Maintain My Garden/fraem-gmbh-LVJnIiIeyO0-unsplash.webp
+    - src: /assets/Maintain My Garden/landscaping_MMG.jpg
       size: wide
 
 - slug: pace-retail-consulting
   title: PACE RETAIL CONSULTING
   description: "Pace Retail Consulting is a Sydney-based consultancy company that helps retail brands adapt to change, strengthen their strategy and connect more effectively with customers. With a focus on independence, innovation and personal service, they guide retailers through an industry that is fast-moving and highly competitive.\nI created a complete visual identity for Pace including their logo, website and social assets. The design reflects clarity and momentum, positioning the brand as a forward-thinking partner where retail meets strategy. My process involved exploring type and colour systems that felt bold yet professional, developing a logo that communicates movement and adaptability, and extending these elements into digital and social platforms to build a cohesive brand experience."
   type: BRANDING & WEB DESIGN
-  listingcardasset: /assets/Pace Retail/PaceRetail.mp4
+  listingcardasset: /assets/Pace Retail/WebsiteMockup_PACE.mp4
   images:
-    - src: /assets/Pace Retail/Website+mock+up.webp
+    - src: /assets/Pace Retail/Website_PACE.jpg
       size: extra_tall
-    - src: /assets/Pace Retail/Pace1.mp4
+    - src: /assets/Pace Retail/Logo_PACE.mp4
       size: wide
-    - src: /assets/Pace Retail/pexels-kseniachernaya-3965548.webp
+    - src: /assets/Pace Retail/Retail_PACE.webp
       size: wide
-    - src: /assets/Pace Retail/Pace2.mp4
+    - src: /assets/Pace Retail/BrandFonts_PACE.mp4
       size: wide
-    - src: /assets/Pace Retail/instagram+pace+mock+up.webp
+    - src: /assets/Pace Retail/SocialMedia_PACE.jpg
       size: tall
-    - src: /assets/Pace Retail/Pace3.mp4
+    - src: /assets/Pace Retail/BrandColours_PACE.mp4
       size: wide
-    - src: /assets/Pace Retail/PaceRetail.mp4
+    - src: /assets/Pace Retail/WebsiteMockup_PACE.mp4
       size: wide
 
 - slug: human-synergistics
@@ -65,19 +65,19 @@
   type: BRANDING & WEB DESIGN
   listingcardasset: /assets/Human Synergistics/HumanS.mp4
   images:
-    - src: /assets/Human Synergistics/mock+up+3.webp
+    - src: /assets/Human Synergistics/Booklet3_HS.jpg
       size: normal
     - src: /assets/Human Synergistics/HumanS1.mp4
       size: wide
-    - src: /assets/Human Synergistics/Free_Pole_Banner_Mockup_3.webp
+    - src: /assets/Human Synergistics/Banner_HS.png
       size: wide
-    - src: /assets/Human Synergistics/mock+up+1+2.webp
+    - src: /assets/Human Synergistics/BookletCover_HS.jpg
       size: normal
-    - src: /assets/Human Synergistics/flyer+2.0.webp
+    - src: /assets/Human Synergistics/Flyer_HS.jpg
       size: normal
-    - src: /assets/Human Synergistics/Social+media+insta+mock+up.webp
+    - src: /assets/Human Synergistics/Socialmedia_HS.jpg
       size: wide
-    - src: /assets/Human Synergistics/open+book+1+2.webp
+    - src: /assets/Human Synergistics/Booklet1_HS.jpg
       size: half_wide
-    - src: /assets/Human Synergistics/mock+up+5.webp
+    - src: /assets/Human Synergistics/Booklet2_HS.jpg
       size: half_wide

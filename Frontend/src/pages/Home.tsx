@@ -13,12 +13,12 @@ export default function Home() {
 
     return (
         <section className="pt-32 lg:pt-0 flex flex-col items-center">
-            <div className="w-full flex flex-col items-center min-h-[300px] lg:min-h-[500px]">
+            <div className="relative w-full flex flex-col items-center min-h-[300px] lg:min-h-[500px]">
                 <video autoPlay loop muted playsInline className="w-full rounded-lg">
                     <source src={assetPath('/assets/Home/HeroVideoMobile.mp4')} media="(max-width: 1023px)" />
-                    <source src={assetPath('/assets/Home/HeroVideo.mp4')} />
+                    <source src={assetPath('/assets/Home/STUDIOLD.mp4')} />
                 </video>
-                <button onClick={scrollToProjects} className="cursor-pointer hidden lg:block bg-transparent">
+                <button onClick={scrollToProjects} className="cursor-pointer hidden lg:block bg-transparent absolute bottom-16 left-1/2 -translate-x-1/2">
                     <ChevronDown className="w-12 h-12 bg-transparent" style={{ animation: 'bounce-once 1.5s ease-in-out 1' }} />
                 </button>
             </div>

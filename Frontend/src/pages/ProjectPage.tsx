@@ -4,6 +4,7 @@ import { load as parseYaml } from "js-yaml";
 import { useState } from "react";
 import projectsYaml from "../projects.yaml?raw";
 import { assetPath } from '@/utils/assetPath';
+import ScrollToTopButton from '../components/ScrollToTopButton'
 
 type ImageSize = "large" | "normal" | "tall" | "extra_tall" | "thin" | "wide" | "half_wide" | "extra_wide" | "full_wide";
 
@@ -83,6 +84,7 @@ export default function ProjectPage() {
 
     return (
         <div className="pt-32 lg:pt-[300px]">
+            <ScrollToTopButton />
                 <Link to="/" className="inline-flex items-center gap-2 text-foreground mb-8">
                 <ArrowLeft className="w-5 h-5" />
                 <span>Back</span>
