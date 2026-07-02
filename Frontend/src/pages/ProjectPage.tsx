@@ -6,15 +6,99 @@ import projectsYaml from "../projects.yaml?raw";
 import { assetPath } from '@/utils/assetPath';
 import ScrollToTopButton from '../components/ScrollToTopButton'
 
-type ImageSize = "large" | "normal" | "tall" | "extra_tall" | "thin" | "wide" | "half_wide" | "extra_wide" | "full_wide";
+/* -----------------------------
+   Types
+------------------------------ */
+type ImageSize =
+    "large" |
+    "normal" |
+    "tall" |
+    "extra_tall" |
+    "thin" |
+    "wide" |
+    "half_wide" |
+    "extra_wide" |
+    "full_wide";
 
 interface ProjectImage {
     src: string;
     size: ImageSize;
 }
 
-const MediaRenderer = ({ src, className, alt }: { src: string; className?: string; alt: string }) => {
+interface Project {
+    slug: string;
+    title: string;
+    description: string;
+    type: string;
+    listingimage: string;
+    images: ProjectImage[];
+}
+
+/* -----------------------------
+   Responsive image helper
+------------------------------ */
+function getImageSources(src: string) {
+    const ext = src.substring(src.lastIndexOf("."));
+    const base = src.substring(0, src.lastIndexOf("."));
+
+    return {
+        src: assetPath(`${base}-800.webp`),
+        srcSet: [
+            `${assetPath(`${base}-400.webp`)} 400w`,
+            `${assetPath(`${base}-800.webp`)} 800w`,
+            `${assetPath(`${base}-1600.webp`)} 1600w`,
+            `${assetPath(`${base}-2400.webp`)} 2400w`,
+        ].join(", ")
+    };
+}
+
+/* -----------------------------
+   Layout-aware sizes
+------------------------------ */
+const sizeToViewport: Record<ImageSize, string> = {
+    large: "80vw",
+    normal: "45vw",
+    tall: "45vw",
+    extra_tall: "45vw",
+    thin: "30vw",
+    wide: "60vw",
+    half_wide: "50vw",
+    extra_wide: "70vw",
+    full_wide: "100vw",
+};
+
+/* -----------------------------
+   Grid layout classes
+------------------------------ */
+const sizeClasses10: Record<ImageSize, string> = {
+    large: "col-span-8 row-span-4 aspect-square",
+    normal: "col-span-4 row-span-2",
+    tall: "col-span-4 row-span-4",
+    extra_tall: "col-span-4 row-span-6",
+    thin: "col-span-3 row-span-2",
+    wide: "col-span-6 row-span-2",
+    half_wide: "col-span-5 row-span-2",
+    extra_wide: "col-span-7 row-span-2",
+    full_wide: "col-span-10 row-span-2",
+};
+
+/* -----------------------------
+   Media Renderer
+------------------------------ */
+const MediaRenderer = ({
+    src,
+    className,
+    alt,
+    size
+}: {
+    src: string;
+    className?: string;
+    alt: string;
+    size?: ImageSize;
+}) => {
     const [loaded, setLoaded] = useState(false);
+
+    const effectiveSize: ImageSize = size ?? "normal";
 
     if (src.endsWith(".mp4")) {
         return (
@@ -29,12 +113,22 @@ const MediaRenderer = ({ src, className, alt }: { src: string; className?: strin
             />
         );
     }
+
+    const image = getImageSources(src);
+
     return (
         <>
-            {!loaded && <div className={`bg-gray-200 animate-pulse rounded-lg ${className}`} />}
+            {!loaded && (
+                <div className={`bg-gray-200 animate-pulse rounded-lg ${className}`} />
+            )}
+
             <img
-                src={assetPath(src)}
+                src={image.src}
+                srcSet={image.srcSet}
+                sizes={sizeToViewport[effectiveSize]}
                 alt={alt}
+                loading="lazy"
+                decoding="async"
                 onLoad={() => setLoaded(true)}
                 className={`${className} ${loaded ? '' : 'hidden'}`}
             />
@@ -42,30 +136,14 @@ const MediaRenderer = ({ src, className, alt }: { src: string; className?: strin
     );
 };
 
-interface Project {
-    slug: string;
-    title: string;
-    description: string;
-    type: string;
-    listingimage: string;
-    images: ProjectImage[];
-}
-
+/* -----------------------------
+   Data
+------------------------------ */
 const projectsData = parseYaml(projectsYaml) as Project[];
 
-const sizeClasses10: Record<ImageSize | "default", string> = {
-    default: "col-span-4 row-span-2",
-    large: "col-span-8 row-span-4 aspect-square",
-    normal: "col-span-4 row-span-2",
-    tall: "col-span-4 row-span-4",
-    extra_tall: "col-span-4 row-span-6",
-    thin: "col-span-3 row-span-2",
-    wide: "col-span-6 row-span-2",
-    half_wide: "col-span-5 row-span-2",
-    extra_wide: "col-span-7 row-span-2",
-    full_wide: "col-span-10 row-span-2",
-};
-
+/* -----------------------------
+   Page
+------------------------------ */
 export default function ProjectPage() {
     const { slug } = useParams();
     const project = projectsData.find((p) => p.slug === slug);
@@ -74,8 +152,8 @@ export default function ProjectPage() {
         return (
             <div className="pt-[300px]">
                 <Link to="/" className="inline-flex items-center gap-2 text-foreground mb-8">
-                        <ArrowLeft className="w-5 h-5" />
-                        <span>Back</span>
+                    <ArrowLeft className="w-5 h-5" />
+                    <span>Back</span>
                 </Link>
                 <h1 className="text-2xl font-bold">Project Not Found</h1>
             </div>
@@ -85,14 +163,18 @@ export default function ProjectPage() {
     return (
         <div className="pt-32 lg:pt-[300px]">
             <ScrollToTopButton />
-                <Link to="/" className="inline-flex items-center gap-2 text-foreground mb-8">
+
+            <Link to="/" className="inline-flex items-center gap-2 text-foreground mb-8">
                 <ArrowLeft className="w-5 h-5" />
                 <span>Back</span>
             </Link>
+
             <div className="mb-12">
                 <h1 className="text-base font-bold mb-2">{project.title}</h1>
                 <p className="text-muted-foreground">{project.description}</p>
             </div>
+
+            {/* DESKTOP GRID */}
             <div className="hidden lg:block">
                 <div className="grid grid-cols-10 gap-8 auto-rows-[250px]">
                     {project.images.map((image, index) => (
@@ -100,22 +182,25 @@ export default function ProjectPage() {
                             key={index}
                             src={image.src}
                             alt={`${project.title} - Image ${index + 1}`}
-                            className={`w-full h-full object-cover rounded-lg ${sizeClasses10[image.size] || sizeClasses10.default}`}
+                            size={image.size}
+                            className={`w-full h-full object-cover rounded-lg ${sizeClasses10[image.size]}`}
                         />
                     ))}
                 </div>
             </div>
+
+            {/* MOBILE STACK */}
             <div className="flex flex-col gap-8 lg:hidden">
                 {project.images.map((image, index) => (
                     <MediaRenderer
                         key={index}
                         src={image.src}
                         alt={`${project.title} - Image ${index + 1}`}
+                        size={image.size}
                         className="w-full rounded-lg"
                     />
                 ))}
             </div>
-            {/* <ContactSection/> */}
         </div>
     );
 }
