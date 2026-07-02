@@ -41,14 +41,17 @@ function getImageSources(src: string) {
     const ext = src.substring(src.lastIndexOf("."));
     const base = src.substring(0, src.lastIndexOf("."));
 
+    const build = (size: number) =>
+        assetPath(`${base}-${size}.webp`);
+
     return {
-        src: assetPath(`${base}-800.webp`),
+        src: build(800),
         srcSet: [
-            `${assetPath(`${base}-400.webp`)} 400w`,
-            `${assetPath(`${base}-800.webp`)} 800w`,
-            `${assetPath(`${base}-1600.webp`)} 1600w`,
-            `${assetPath(`${base}-2400.webp`)} 2400w`,
-        ].join(", ")
+            `${build(400)} 400w`,
+            `${build(800)} 800w`,
+            `${build(1600)} 1600w`,
+            `${build(2400)} 2400w`,
+        ].join(", "),
     };
 }
 
@@ -97,42 +100,55 @@ const MediaRenderer = ({
     size?: ImageSize;
 }) => {
     const [loaded, setLoaded] = useState(false);
-
+    const [errored, setErrored] = useState(false);
     const effectiveSize: ImageSize = size ?? "normal";
 
     if (src.endsWith(".mp4")) {
         return (
-            <video
-                src={assetPath(src)}
-                autoPlay
-                loop
-                muted
-                playsInline
-                onLoadedData={() => setLoaded(true)}
-                className={`${className} ${loaded ? '' : 'hidden'}`}
-            />
+            <div className={`relative ${className}`}>
+                {!loaded && (
+                    <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg" />
+                )}
+                <video
+                    src={assetPath(src)}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    onLoadedData={() => setLoaded(true)}
+                    className={`w-full h-full object-cover rounded-lg transition-opacity duration-300 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+                />
+            </div>
         );
     }
 
     const image = getImageSources(src);
+    // fallback chain: try the resized 800, then the smallest guaranteed size, then the original file
+    const fallbackSrc = errored ? assetPath(src) : image.src;
 
     return (
-        <>
+        <div className={`relative ${className}`}>
             {!loaded && (
-                <div className={`bg-gray-200 animate-pulse rounded-lg ${className}`} />
+                <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg" />
             )}
-
             <img
-                src={image.src}
-                srcSet={image.srcSet}
-                sizes={sizeToViewport[effectiveSize]}
+                src={fallbackSrc}
+                srcSet={errored ? undefined : image.srcSet}
+                sizes={errored ? undefined : sizeToViewport[effectiveSize]}
                 alt={alt}
                 loading="lazy"
                 decoding="async"
                 onLoad={() => setLoaded(true)}
-                className={`${className} ${loaded ? '' : 'hidden'}`}
+                onError={() => {
+                    if (!errored) {
+                        setErrored(true); // fall back to the original, full-res image
+                    } else {
+                        setLoaded(true); // stop showing skeleton even if that also fails
+                    }
+                }}
+                className={`w-full h-full object-cover rounded-lg transition-opacity duration-300 ${loaded ? 'opacity-100' : 'opacity-0'}`}
             />
-        </>
+        </div>
     );
 };
 
@@ -183,7 +199,7 @@ export default function ProjectPage() {
                             src={image.src}
                             alt={`${project.title} - Image ${index + 1}`}
                             size={image.size}
-                            className={`w-full h-full object-cover rounded-lg ${sizeClasses10[image.size]}`}
+                            className={sizeClasses10[image.size]}   // just grid placement now
                         />
                     ))}
                 </div>

@@ -5,7 +5,8 @@ import path from "path";
 
 const sizes = [400, 800, 1600, 2400];
 
-const files = await fg("public/assets/**/*.{jpg,jpeg,png,webp}");
+const files = (await fg("public/assets/**/*.{jpg,jpeg,png,webp}"))
+    .filter((file) => path.basename(file).toLowerCase() !== "favicon.webp");
 
 for (const file of files) {
     const ext = path.extname(file);
