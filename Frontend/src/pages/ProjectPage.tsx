@@ -38,7 +38,6 @@ interface Project {
    Responsive image helper
 ------------------------------ */
 function getImageSources(src: string) {
-    const ext = src.substring(src.lastIndexOf("."));
     const base = src.substring(0, src.lastIndexOf("."));
 
     const build = (size: number) =>
