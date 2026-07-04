@@ -15,7 +15,7 @@ export default function ScrollToTopButton() {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-6 right-6 z-50 w-10 h-10 rounded-full bg-background flex items-center justify-center hover:opacity-70 transition-opacity cursor-pointer ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+      className={`fixed bottom-6 right-6 z-50 w-10 h-10 rounded-full !bg-background flex items-center justify-center hover:opacity-70 transition-opacity cursor-pointer ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
       aria-label="Scroll to top"
     >
       <ArrowUp size={28} />

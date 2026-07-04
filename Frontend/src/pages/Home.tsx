@@ -18,7 +18,7 @@ export default function Home() {
                     <source src={assetPath('/assets/Home/HeroVideoMobile.mp4')} media="(max-width: 1023px)" />
                     <source src={assetPath('/assets/Home/STUDIOLD.mp4')} />
                 </video>
-                <button onClick={scrollToProjects} className="cursor-pointer hidden lg:block bg-transparent absolute bottom-16 left-1/2 -translate-x-1/2">
+                <button onClick={scrollToProjects} className="cursor-pointer hidden lg:block !bg-transparent absolute bottom-16 left-1/2 -translate-x-1/2">
                     <ChevronDown className="w-12 h-12 bg-transparent" style={{ animation: 'bounce-once 1.5s ease-in-out 1' }} />
                 </button>
             </div>
