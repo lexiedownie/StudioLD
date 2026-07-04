@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "optimise-images": "node scripts/optimise-images.js",
-    "prebuild": "npm run optimise-images",
+    "clean-images": "node scripts/clean-images.js",
+    "prebuild": "npm run clean-images && npm run optimise-images",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "spellcheck": "cspell \"src/**/*.{ts,tsx}\"",
