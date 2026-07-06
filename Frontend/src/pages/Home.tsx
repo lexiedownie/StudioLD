@@ -13,9 +13,9 @@ export default function Home() {
 
     return (
         <section className="pt-32 lg:pt-0 flex flex-col items-center">
-            <div className="relative w-full flex flex-col items-center min-h-[300px] lg:min-h-[500px]">
-                <video autoPlay loop muted playsInline className="w-full rounded-lg">
-                    <source src={assetPath('/assets/Home/HeroVideoMobile.mp4')} media="(max-width: 1023px)" />
+            <div className="relative w-full flex flex-col items-center min-h-[100px] lg:min-h-[500px] overflow-hidden">
+                <video autoPlay loop muted playsInline className="w-full rounded-lg max-[1023px]:w-[130%] max-[1023px]:max-w-none">
+                    <source src={assetPath('/assets/Home/STUDIOLD.mp4')} media="(max-width: 1023px)" className=""/>
                     <source src={assetPath('/assets/Home/STUDIOLD.mp4')} />
                 </video>
                 <button onClick={scrollToProjects} className="cursor-pointer hidden lg:block !bg-transparent absolute bottom-16 left-1/2 -translate-x-1/2">
