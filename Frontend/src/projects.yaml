@@ -65,11 +65,11 @@
   type: BRANDING & WEB DESIGN
   listingcardasset: /assets/HumanSynergistics/HumanS.mp4
   images:
-    - src: /assets/HumanSynergistics/Booklet3_HS.jpg
+    - src: /assets/HumanSynergistics/Booklet3_HS_test.png
       size: normal
     - src: /assets/HumanSynergistics/HumanS1.mp4
       size: wide
-    - src: /assets/HumanSynergistics/Banner_HS.png
+    - src: /assets/HumanSynergistics/Banner_HS_test.png
       size: wide
     - src: /assets/HumanSynergistics/BookletCover_HS.jpg
       size: normal
