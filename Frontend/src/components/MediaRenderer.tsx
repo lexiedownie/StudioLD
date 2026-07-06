@@ -78,7 +78,7 @@ export default function MediaRenderer({
                     setFullscreen(false);
                     setFullscreenFallback(false);
                 }}
-                className="absolute top-4 right-4 w-8 h-8 text-white cursor-pointer bg-black/40 flex items-center justify-center rounded-lg"
+                className="absolute top-4 right-4 w-8 h-8 text-white cursor-pointer !bg-black/40 flex items-center justify-center rounded-lg"
             >
                 <X className="w-7 h-7"/>
             </button>
